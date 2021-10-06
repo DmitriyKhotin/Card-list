@@ -1,0 +1,24 @@
+{
+  "name": "sravni-ru",
+  "version": "1.0.0",
+  "description": "Simple SPA with cards list",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dmitriymgtu/Card-list.git"
+  },
+  "keywords": [
+    "React",
+    "Typescript",
+    "Redux"
+  ],
+  "author": "Dmitriy Khotin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dmitriymgtu/Card-list/issues"
+  },
+  "homepage": "https://github.com/Dmitriymgtu/Card-list#readme"
+}
