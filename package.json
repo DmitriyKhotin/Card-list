@@ -4,7 +4,7 @@
   "description": "Simple SPA with cards list",
   "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,11 @@
   "bugs": {
     "url": "https://github.com/Dmitriymgtu/Card-list/issues"
   },
-  "homepage": "https://github.com/Dmitriymgtu/Card-list#readme"
+  "homepage": "https://github.com/Dmitriymgtu/Card-list#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^13.2.0",
+    "@commitlint/config-conventional": "^13.2.0",
+    "husky": "^7.0.2",
+    "webpack": "^5.57.1"
+  }
 }
