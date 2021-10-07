@@ -1,24 +1,29 @@
-import * as path from 'path';
-import * as webpack from 'webpack';
+import webpack = require('webpack')
+import path = require("path");
 
 const target = path.resolve(__dirname, 'target');
 const src = path.resolve(__dirname, 'src');
 
 const devMode = process.env.MODE === 'dev';
-
+console.log(path.join(src, 'index.ts'))
+console.log(target)
+console.log(devMode)
 const config: webpack.Configuration = {
   mode: devMode ? 'development' : 'production',
-  entry: './foo.js',
+  entry: path.join(src, 'index.ts'),
   output: {
-    path: path.resolve(__dirname, 'target'),
-    filename: 'foo.bundle.js',
+    path: target,
+    filename: 'bundle.js',
+    publicPath: '/',
   },
-  // devtool: env.production ? 'source-map' : 'eval',
+  devtool: devMode ? 'eval-cheap-module-source-map' : 'none',
   // plugins: [
   //   new TerserPlugin({
   //     terserOptions: {
-  //       compress: argv.mode === 'production' // only if `--mode production` was passed
+  //       compress: !devMode // only if `--mode production` was passed
   //     }
   //   })
   // ]
 };
+
+export default config;
