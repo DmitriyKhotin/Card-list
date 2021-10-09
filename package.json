@@ -2,7 +2,7 @@
   "name": "sravni-ru",
   "version": "1.0.0",
   "description": "Simple SPA with cards list",
-  "main": "src/index.ts",
+  "main": "src/Entries/index.tsx",
   "scripts": {
     "prepare": "husky install",
     "dev": "env MODE='development' webpack serve",
@@ -25,16 +25,27 @@
   "homepage": "https://github.com/Dmitriymgtu/Card-list#readme",
   "devDependencies": {
     "@babel/core": "^7.15.8",
+    "@babel/polyfill": "^7.12.1",
     "@babel/preset-env": "^7.15.8",
+    "@babel/preset-react": "^7.14.5",
     "@babel/preset-typescript": "^7.15.0",
     "@commitlint/cli": "^13.2.0",
     "@commitlint/config-conventional": "^13.2.0",
     "@types/node": "^16.10.3",
+    "@types/react": "^17.0.27",
+    "@types/react-dom": "^17.0.9",
+    "@types/react-router-dom": "^5.3.1",
     "@types/webpack": "^5.28.0",
     "@types/webpack-dev-server": "^4.3.1",
     "babel-loader": "^8.2.2",
+    "css-loader": "^6.3.0",
+    "css-minimizer-webpack-plugin": "^3.1.1",
     "html-webpack-plugin": "^5.3.2",
     "husky": "^7.0.2",
+    "mini-css-extract-plugin": "^2.4.2",
+    "node-sass": "^6.0.1",
+    "postcss-loader": "^6.1.1",
+    "sass-loader": "^12.1.0",
     "terser-webpack-plugin": "^5.2.4",
     "ts-node": "^10.2.1",
     "typescript": "^4.4.3",
@@ -45,6 +56,8 @@
   },
   "browserslist": "> 0.25%, not dead",
   "dependencies": {
-    "@babel/polyfill": "^7.12.1"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.3.0"
   }
 }
