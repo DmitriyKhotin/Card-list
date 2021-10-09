@@ -4,7 +4,9 @@
   "description": "Simple SPA with cards list",
   "main": "src/index.ts",
   "scripts": {
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "dev": "env MODE='development' webpack serve",
+    "build": "env MODE='production' webpack"
   },
   "repository": {
     "type": "git",
@@ -22,14 +24,27 @@
   },
   "homepage": "https://github.com/Dmitriymgtu/Card-list#readme",
   "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
+    "@babel/preset-typescript": "^7.15.0",
     "@commitlint/cli": "^13.2.0",
     "@commitlint/config-conventional": "^13.2.0",
     "@types/node": "^16.10.3",
     "@types/webpack": "^5.28.0",
+    "@types/webpack-dev-server": "^4.3.1",
+    "babel-loader": "^8.2.2",
+    "html-webpack-plugin": "^5.3.2",
     "husky": "^7.0.2",
+    "terser-webpack-plugin": "^5.2.4",
     "ts-node": "^10.2.1",
     "typescript": "^4.4.3",
     "webpack": "^5.57.1",
-    "webpack-cli": "^4.9.0"
+    "webpack-bundle-analyzer": "^4.4.2",
+    "webpack-cli": "^4.9.0",
+    "webpack-dev-server": "^4.3.1"
+  },
+  "browserslist": "> 0.25%, not dead",
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1"
   }
 }
