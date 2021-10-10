@@ -1,0 +1,17 @@
+.error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: rgb(118, 211, 77);
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  top: 40%;
+
+  &__info {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+}
