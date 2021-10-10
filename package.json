@@ -7,7 +7,7 @@
     "prepare": "husky install",
     "dev": "env MODE='development' webpack serve",
     "build": "node server.js && env MODE='production' webpack",
-    "start": "nodemon server.js && dev"
+    "start": "yarn run dev & nodemon server.js"
   },
   "repository": {
     "type": "git",

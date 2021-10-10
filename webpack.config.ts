@@ -116,7 +116,8 @@ const config: WebpackConfig = {
     port: 9000,
     static: {
       directory: target,
-    }
+    },
+    historyApiFallback: true
   },
 };
 

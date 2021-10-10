@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 
 const MainPage: FC = () => {
-  return <div/>
+  return <div className={'mainPage'}/>
 }
 
 export default MainPage
