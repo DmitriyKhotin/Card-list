@@ -21,7 +21,7 @@ type WebpackConfig = webpack.Configuration & {
 console.log(path.join(Entries, 'index.tsx'))
 const config: WebpackConfig = {
   mode: DEV_MODE ? 'development' : 'production',
-  entry: path.join(Entries, 'index.tsx'), // '@babel/polyfill'
+  entry: ['@babel/polyfill', path.join(Entries, 'index.tsx')],
   output: {
     path: target,
     filename: 'bundle.js',
@@ -47,7 +47,7 @@ const config: WebpackConfig = {
     new CssMinimizerPlugin(),
     new MiniCssExtractPlugin(),
     new webpack.DefinePlugin({
-      'process.env.MODE': JSON.stringify(process.env.MODE),
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     })
   ],
   module: {

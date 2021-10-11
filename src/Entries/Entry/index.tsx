@@ -1,10 +1,12 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect } from 'react'
 import CardsPage from '../../Pages/CardsPage'
 import MainPage from '../../Pages/MainPage'
-import ErrorBoundary from '../../ErrorBoundary'
+import ErrorBoundary from '../../Components/ErrorBoundary'
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom'
 
+
 const Entry: FC = () => {
+
   return (
     <ErrorBoundary>
       <BrowserRouter>
