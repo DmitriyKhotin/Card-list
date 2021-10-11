@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { debugLog } from '../utils/debugLog'
+import { debugLog } from '../../utils/debugLog'
 import styles from './styles.scss'
-import RepairImage from '../Components/Atoms/RepairImage'
+import RepairImage from '../Atoms/RepairImage'
 
 type ErrorState = {
   hasError: boolean
