@@ -13,8 +13,6 @@ const target = path.resolve(__dirname, 'target');
 const src = path.resolve(__dirname, 'src');
 const Entries = path.resolve(src, 'Entries');
 
-debugLog(DEV_MODE)
-
 type WebpackConfig = webpack.Configuration & {
   devServer: webpackDevServer.Configuration
 }
