@@ -1,17 +1,15 @@
-import React, { FC } from 'react'
-import styles from './styles.scss'
-import CreditIcon from '../../Atoms/CreditIcon'
-import Note from '../../Atoms/Note'
-import ActionButton from '../../Atoms/ActionButton'
-import { CardProps } from '../../Organisms/Card/types'
+import React, { FC } from 'react';
 
-const Rate: FC<Partial<CardProps>> = ({rate, name}) => {
-  return (
-    <div className={styles.rate}>
-      <p className={styles.rate_percent}>{ rate }%</p>
-      <Note text={'«' + name + '»'}/>
-    </div>
-  )
-}
+import Note from '../../Atoms/Note';
+import { CardProps } from '../../Organisms/Card/types';
 
-export default Rate
+import styles from './styles.scss';
+
+const Rate: FC<Partial<CardProps>> = ({ rate, name }) => (
+  <div className={styles.rate}>
+    <p className={styles.rate_percent}>{rate}%</p>
+    <Note text={'«' + name + '»'} />
+  </div>
+);
+
+export default Rate;

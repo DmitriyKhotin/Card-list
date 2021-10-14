@@ -31,8 +31,6 @@ app.get('/', async (requst, response) => {
     });
     return
   }
-  console.log(sort)
-  console.log(filter)
   let array = data;
 
   if (Object.entries(filter).length > 0 || sort) {
@@ -54,7 +52,7 @@ app.get('/', async (requst, response) => {
 
 app.post('/', async (requst, response) => {
   const { url, body } = requst;
-  console.log(requst.body)
+
   if (url === '/' && body && body.to <= data.length) {
     response.send(sortedAndFiltered.slice(body.from, body.to))
     return

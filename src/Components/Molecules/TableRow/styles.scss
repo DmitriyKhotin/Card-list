@@ -1,0 +1,21 @@
+.row {
+  font-size: 14px;
+  width: 100%;
+  display: flex;
+
+  &:nth-child(2n-1) {
+     background-color: #EBF0F3;
+  }
+
+  &__key {
+    padding: 15px 20px;
+    color: #8c8c8c;
+    width: 40%;
+  }
+
+  &__value {
+    color: #3c3e44;
+    padding: 15px 20px;
+    width: 60%;
+  }
+}

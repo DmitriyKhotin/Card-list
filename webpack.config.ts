@@ -2,6 +2,7 @@ import webpack = require('webpack');
 import webpackDevServer = require('webpack-dev-server');
 import path = require("path");
 import { DEV_MODE } from './webpackUtils/MODE'
+import { debugLog } from './src/utils/debugLog'
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
@@ -12,13 +13,12 @@ const target = path.resolve(__dirname, 'target');
 const src = path.resolve(__dirname, 'src');
 const Entries = path.resolve(src, 'Entries');
 
-console.log(DEV_MODE)
+debugLog(DEV_MODE)
 
 type WebpackConfig = webpack.Configuration & {
   devServer: webpackDevServer.Configuration
 }
 
-console.log(path.join(Entries, 'index.tsx'))
 const config: WebpackConfig = {
   mode: DEV_MODE ? 'development' : 'production',
   entry: ['@babel/polyfill', path.join(Entries, 'index.tsx')],

@@ -1,10 +1,7 @@
 import React, { memo } from 'react';
-import styles from './styles.scss'
 
-const RepairImage = () => {
-  return (
-    <div className={styles.repairImage}/>
-  )
-}
+import styles from './styles.scss';
 
-export default memo(RepairImage)
+const RepairImage = () => <div className={styles.repairImage} />;
+
+export default memo(RepairImage);

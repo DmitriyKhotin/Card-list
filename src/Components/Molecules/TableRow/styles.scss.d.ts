@@ -2,7 +2,9 @@
 // Please do not change this file!
 declare namespace StylesScssNamespace {
   export interface IStylesScss {
-    license: string;
+    row: string;
+    row__key: string;
+    row__value: string;
   }
 }
 

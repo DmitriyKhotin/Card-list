@@ -10,3 +10,5 @@ node_modules
 
 # BundleAnalyzerPlugin report
 report.html
+
+.eslintcache

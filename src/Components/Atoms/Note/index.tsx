@@ -1,10 +1,9 @@
-import React, { FC } from 'react'
-import styles from './styles.scss'
+import React, { FC } from 'react';
 
-const Note: FC<{text: string}> = ({text}) => {
-  return (
-    <p className={styles.note}>{ text }</p>
-  )
-}
+import styles from './styles.scss';
 
-export default Note
+const Note: FC<{ text: string }> = ({ text }) => (
+  <p className={styles.note}>{text}</p>
+);
+
+export default Note;
