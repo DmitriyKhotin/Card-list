@@ -6,7 +6,7 @@
   "scripts": {
     "prepare": "husky install",
     "client": "env NODE_ENV='development' webpack serve",
-    "dev": "concurrently 'yarn run client' 'nodemon server.js'",
+    "dev": "concurrently 'yarn run client' 'nodemon ./server/server.js'",
     "build": "env NODE_ENV='production' webpack"
   },
   "repository": {

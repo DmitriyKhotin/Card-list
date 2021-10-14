@@ -1,0 +1,22 @@
+.sort {
+  display: flex;
+  line-height: 100%;
+
+  &__description {
+    margin-right: 10px;
+  }
+
+  &__value {
+    margin-left: 10px;
+    color: #8c8c8c;
+    cursor: pointer;
+
+    &:hover {
+      color: #00afff;
+    }
+
+    &:last-child {
+      margin-right: 28px;
+    }
+  }
+}
