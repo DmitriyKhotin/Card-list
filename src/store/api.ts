@@ -5,7 +5,7 @@ import { Range } from './slice';
 export const getCredits = createAsyncThunk(
   'credits/getCredits',
   async (queryParams: string) => {
-    const response = await fetch('http://localhost:3000/' + queryParams);
+    const response = await fetch('/api/' + queryParams);
     const result = await response.json();
     return result;
   }
@@ -14,7 +14,7 @@ export const getCredits = createAsyncThunk(
 export const fetchNewCredits = createAsyncThunk(
   'credits/fetchNewCredits',
   async (range: Range<number>) => {
-    const response = await fetch('http://localhost:3000/', {
+    const response = await fetch('/api', {
       method: 'POST',
       headers: {
         'content-type': 'application/json; charset=UTF-8',
@@ -29,7 +29,7 @@ export const fetchNewCredits = createAsyncThunk(
 export const fetchCurrentCredit = createAsyncThunk(
   'credits/fetchCurrentCredit',
   async (alias: string) => {
-    const response = await fetch('http://localhost:3000/programs/' + alias);
+    const response = await fetch('/api/' + alias);
     const result = await response.json();
     return result;
   }
