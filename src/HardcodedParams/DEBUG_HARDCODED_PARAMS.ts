@@ -1,3 +1,3 @@
-import { getHardcodedParam } from './getHardcodedParam'
+import { getHardcodedParam } from './getHardcodedParam';
 
-export const DEBUG_HARDCODED_PARAMS = getHardcodedParam('debug')
+export const DEBUG_HARDCODED_PARAMS = getHardcodedParam('debug');

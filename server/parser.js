@@ -15,7 +15,6 @@ const filterData = (filter) => {
 }
 
 const sortData = (sort, array) => {
-  console.log(sort)
   switch (sort) {
     // сортировки
     case'minRate':

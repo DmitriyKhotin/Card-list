@@ -1,9 +1,9 @@
-import React, { FC } from 'react'
-import styles from './styles.scss'
-import CreditIcon from '../../Atoms/CreditIcon'
-import Note from '../../Atoms/Note'
-import ActionButton from '../../Atoms/ActionButton'
-import { CardProps } from '../../Organisms/Card/types'
+import React, { FC } from 'react';
+
+import Note from '../../Atoms/Note';
+import { CardProps } from '../../Organisms/Card/types';
+
+import styles from './styles.scss';
 
 type DocumentsRange = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 
@@ -17,17 +17,14 @@ const DocumentsAmount: Record<DocumentsRange, string> = {
   7: '7 документов',
   8: '8 документов',
   9: '9 документов',
-}
+};
 
-const Description: FC<Partial<CardProps>> = ({age, documents}) => {
+const Description: FC<Partial<CardProps>> = ({ age, documents }) => (
+  <div className={styles.license}>
+    <Note text={'Возраст от ' + age + (age % 10 === 1 ? ' года' : ' лет')} />
+    {/* на всякий случай избегаем ошибочного поля*/}
+    {DocumentsAmount[documents] && <Note text={DocumentsAmount[documents]} />}
+  </div>
+);
 
-  return (
-    <div className={styles.license}>
-      <Note text={'Возраст от ' + age + (age % 10 === 1 ? ' года' : ' лет')}/>
-      {/* на всякий случай избегаем ошибочного поля*/}
-      {DocumentsAmount[documents] && <Note text={DocumentsAmount[documents]}/>}
-    </div>
-  )
-}
-
-export default Description
+export default Description;

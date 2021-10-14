@@ -1,14 +1,14 @@
-import React, { FC } from 'react'
-import styles from './styles.scss'
-import CreditIcon from '../../Atoms/CreditIcon'
-import { CardProps } from '../../Organisms/Card/types'
+import React, { FC } from 'react';
 
-const Company: FC<Partial<CardProps>> = ({ iconUrl}) => {
-  return (
-    <div className={styles.company}>
-      <CreditIcon iconUrl={iconUrl}/>
-    </div>
-  )
-}
+import CreditIcon from '../../Atoms/CreditIcon';
+import { CardProps } from '../../Organisms/Card/types';
 
-export default Company
+import styles from './styles.scss';
+
+const Company: FC<Partial<CardProps>> = ({ iconUrl }) => (
+  <div className={styles.company}>
+    <CreditIcon iconUrl={iconUrl} />
+  </div>
+);
+
+export default Company;

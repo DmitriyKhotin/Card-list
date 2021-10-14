@@ -1,23 +1,38 @@
-import React, { FC, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { CreditsState } from '../../store/slice'
-import { fetchCurrentCredit } from '../../store/api'
-import { useLocation, useRouteMatch, useParams } from 'react-router-dom';
+import React, { FC, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+
+import { CreditsState } from '../../store/slice';
+import { fetchCurrentCredit } from '../../store/api';
+import Table from '../../Components/Organisms/Table';
 
 const CardPage: FC = () => {
-  const error = useSelector<CreditsState>( state => state.error)
+  const currentCredit = useSelector<
+    CreditsState,
+    CreditsState['currentCredit']
+  >((state) => state.currentCredit);
+  const loading = useSelector<CreditsState, CreditsState['loading']>(
+    (state) => state.loading
+  );
+  const error = useSelector<CreditsState, CreditsState['error']>(
+    (state) => state.error
+  );
   const dispatch = useDispatch();
-  const params = useParams<{alias: string}>()
+  const params = useParams<{ alias: string }>();
 
   useEffect(() => {
-    dispatch(fetchCurrentCredit(params.alias))
-  }, [])
+    dispatch(fetchCurrentCredit(params.alias));
+  }, []);
 
   if (error) {
-    throw new Error()
+    throw new Error();
   }
 
-  return <div className={'cardPage'}/>
-}
+  if (loading || !currentCredit) {
+    return <div>...loading</div>;
+  }
 
-export default CardPage
+  return <Table {...currentCredit} />;
+};
+
+export default CardPage;

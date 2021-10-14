@@ -1,14 +1,12 @@
-import React, { FC } from 'react'
-import styles from './styles.scss'
-import { Link } from 'react-router-dom'
+import React, { FC } from 'react';
+import { Link } from 'react-router-dom';
 
-const ActionButton: FC<{alias: string}> = ({alias}) => {
+import styles from './styles.scss';
 
-  return (
-    <Link to={'/programs/' + alias} className={styles.actionButton}>
-      <button className={styles.actionButton__button}>ПЕРЕЙТИ НА САЙТ</button>
-    </Link>
-  )
-}
+const ActionButton: FC<{ alias: string }> = ({ alias }) => (
+  <Link to={'/programs/' + alias} className={styles.actionButton}>
+    <button className={styles.actionButton__button}>ПОКАЗАТЬ УСЛОВИЯ</button>
+  </Link>
+);
 
-export default ActionButton
+export default ActionButton;
