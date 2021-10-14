@@ -149,7 +149,7 @@ module.exports = [
             "to": 8.2
           },
           "termUnit": "month",
-          "term": {
+          "term": { // срок в месяцах
             "from": 36,
             "to": 360
           },
@@ -157,11 +157,11 @@ module.exports = [
         }
       ],
       "currency": "RUB",
-      "creditAmount": {
+      "creditAmount": {  // сумма в рублях
         "from": 12000001,
         "to": 50000000
       },
-      "initialAmount": {
+      "initialAmount": { // первоначальный взнос в %
         "from": 30,
         "to": 80
       }

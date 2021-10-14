@@ -1,0 +1,14 @@
+.mainPage {
+  margin: 50px auto;
+  max-width: 1320px;
+  padding: 0 30px;
+
+  &__header {
+    display: flex;
+    height: 60px;
+    border: 1px solid #dddede;
+    align-items: center;
+    font-size: 14px;
+    padding: 0 30px;
+  }
+}

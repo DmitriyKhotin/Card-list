@@ -1,0 +1,14 @@
+.loadCreditsButton__button {
+  font-size: 14px;
+  padding: 14px 0;
+  width: 100%;
+  border: 1px solid #dddede;
+  border-top: none;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+
+  &:hover {
+    color: #00afff;
+  }
+}

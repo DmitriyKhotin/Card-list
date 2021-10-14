@@ -1,20 +1,22 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { fetchCredits } from './api'
+import { fetchCurrentCredit, fetchNewCredits, getCredits } from './api'
 import { debugLog } from '../utils/debugLog'
 
-interface Range<T> {
+export type DocumentsRange = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
+
+export interface Range<T> {
   from: T,
   to?: T,
 }
 
-interface Organization {
+export interface Organization {
   name: string,
   license: string,
   logo: string,
 }
 
-interface CustomerRequirements {
-  documents: number,
+export interface CustomerRequirements {
+  documents: DocumentsRange,
   age: number,
   manAgeAtRepayment: number,
   femaleAgeAtRepayment: number,
@@ -23,19 +25,19 @@ interface CustomerRequirements {
   salary: number
 }
 
-interface Rate {
+export interface Rate {
   periods: {
     rate: Range<number>,
     termUnit: string,
     term: Range<number>,
     isFloatingRate: boolean,
-  }
+  }[],
   currency: 'RUB' | 'USD' | 'EUR',
   creditAmount: Range<number>,
   initialAmount: Range<number>,
 }
 
-export interface Credits {
+export interface Credit {
   name: string,
   alias: string,
   organization: Organization,
@@ -43,38 +45,99 @@ export interface Credits {
   rate: Rate,
 }
 
+type CreditWithCount = {
+  credits: Credit[],
+} & {
+  count: 0
+}
+
 export interface CreditsState {
-  credits: Credits[],
-  error: boolean
+  credits: Credit[],
+  currentCredit: Credit,
+  error: boolean,
+  loading: boolean,
+  count: number,
 }
 
 const initialState: CreditsState = {
   credits: [],
-  error: false
+  error: false,
+  loading: false,
+  currentCredit: undefined,
+  count: 0,
 };
 
 const counterSlice = createSlice({
   name: 'credits',
   initialState,
   reducers: {
-    increment() {
-      console.log('increment')
-    }
+
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchCredits.rejected, (state, action) => {
+      .addCase(getCredits.rejected, (state: CreditsState) => {
+        debugLog('getCredits rejected')
         state.error = true;
+        state.loading = false;
         state.credits = [];
+        state.currentCredit = undefined;
+        state.count = 0;
       })
-      .addCase(fetchCredits.fulfilled, (state, action) => {
-        debugLog('fetchCredits fulfilled', action.payload)
-        debugLog('fetchCredits fulfilled')
-        state.credits.push(...action.payload)
+      .addCase(getCredits.pending, (state: CreditsState) => {
+        debugLog('getCredits pending')
+        state.error = false;
+        state.loading = true;
+        state.credits = [];
+        state.currentCredit = undefined;
+        state.count = 0;
+      })
+      .addCase(getCredits.fulfilled, (state: CreditsState, action: PayloadAction<CreditWithCount>) => {
+        debugLog('getCredits fulfilled')
+        state.credits.push(...action.payload.credits);
+        state.loading = false;
+        state.error = false;
+        state.count = action.payload.count;
+      })
+      .addCase(fetchNewCredits.rejected, (state: CreditsState) => {
+        debugLog('fetchNewCredits rejected')
+        state.error = true;
+        state.loading = false;
+        state.credits = [];
+        state.currentCredit = undefined;
+        state.count = 0;
+      })
+      .addCase(fetchNewCredits.pending, (state: CreditsState) => {
+        debugLog('fetchNewCredits pending')
+        state.error = false;
+        state.loading = true;
+      })
+      .addCase(fetchNewCredits.fulfilled, (state: CreditsState, action: PayloadAction<Credit[]>) => {
+        debugLog('fetchNewCredits fulfilled')
+        state.credits.push(...action.payload);
+        state.loading = false;
+        state.error = false;
+      })
+      .addCase(fetchCurrentCredit.rejected, (state: CreditsState) => {
+        debugLog('fetchCurrentCredit rejected')
+        state.error = true;
+        state.loading = false;
+        state.credits = [];
+        state.currentCredit = undefined;
+      })
+      .addCase(fetchCurrentCredit.pending, (state: CreditsState) => {
+        debugLog('fetchCurrentCredit pending')
+        state.error = false;
+        state.loading = true;
+        state.currentCredit = undefined;
+      })
+      .addCase(fetchCurrentCredit.fulfilled, (state: CreditsState, action: PayloadAction<Credit>) => {
+        debugLog('fetchCurrentCredit fulfilled')
+        state.currentCredit = action.payload;
+        state.loading = false;
         state.error = false;
       })
   }
 })
-console.log(counterSlice)
-export const { increment }  = counterSlice.actions
+
+export const { }  = counterSlice.actions
 export default counterSlice.reducer
