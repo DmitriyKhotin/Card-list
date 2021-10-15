@@ -1,4 +1,13 @@
 .periods__amount {
   font-weight: 700;
   font-size: 16px;
+
+  @media (max-width: 500px) {
+    font-weight: 600;
+    font-size: 12px;
+
+    &:last-child {
+      padding-right: 10px;
+    }
+  }
 }

@@ -2,11 +2,9 @@
 // Please do not change this file!
 declare namespace StylesScssNamespace {
   export interface IStylesScss {
-    card: string;
-    card__elem__container: string;
-    card__elem__content: string;
-    col: string;
-    row: string;
+    filter: string;
+    filter__clean: string;
+    filter__input: string;
   }
 }
 

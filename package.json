@@ -74,6 +74,7 @@
   "browserslist": "> 0.25%, not dead",
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.2",
+    "classnames": "^2.3.1",
     "express": "^4.17.1",
     "loose-envify": "^1.4.0",
     "react": "^17.0.2",

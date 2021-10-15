@@ -2,9 +2,11 @@
 // Please do not change this file!
 declare namespace StylesScssNamespace {
   export interface IStylesScss {
+    select: string;
     sort: string;
     sort__description: string;
     sort__value: string;
+    sort__value_active: string;
   }
 }
 

@@ -17,4 +17,21 @@
     justify-content: center;
     height: 100%;
   }
+
+  @media (max-width: 1100px) {
+    align-items: normal;
+    height: 200px;
+    flex-direction: column;
+    padding: 5px 16px 12px;
+  }
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.col {
+  width: 50%;
 }

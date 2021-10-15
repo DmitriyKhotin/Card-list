@@ -29,7 +29,7 @@ export const fetchNewCredits = createAsyncThunk(
 export const fetchCurrentCredit = createAsyncThunk(
   'credits/fetchCurrentCredit',
   async (alias: string) => {
-    const response = await fetch('/api/' + alias);
+    const response = await fetch('/api/programs/' + alias);
     const result = await response.json();
     return result;
   }
