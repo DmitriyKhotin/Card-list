@@ -57,7 +57,7 @@ const Sort: FC = () => {
           >
             {value.text}
           </option>
-        )
+        );
       })}
     </select>
   );
