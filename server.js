@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser');
 const data = require('./data')
 const { filterData, sortData } = require('./parser')
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 let sortedAndFiltered = data
@@ -19,8 +19,11 @@ app.use(function(req, res, next) {
 
 app.use(express.json());
 
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('./target'));
+}
 
-app.get('/', async (requst, response) => {
+app.get('/api', async (requst, response) => {
   const { url, query } = requst;
   const { sort, ...filter } = query;
 
@@ -50,7 +53,7 @@ app.get('/', async (requst, response) => {
   }
 })
 
-app.post('/', async (requst, response) => {
+app.post('/api', async (requst, response) => {
   const { url, body } = requst;
 
   if (url === '/' && body && body.to <= data.length) {
@@ -62,7 +65,7 @@ app.post('/', async (requst, response) => {
   }
 })
 
-app.get('/programs/:alias', async (requst, response) => {
+app.get('/api/programs/:alias', async (requst, response) => {
   const { params: { alias }, query} = requst;
   // TODO: сделать проверку alias на существование - если нет, то 404
   const credit = data.find((value) => {

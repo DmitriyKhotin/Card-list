@@ -1,13 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { DEV_MODE } from '../../webpackUtils/MODE';
-import { debugLog } from '../utils/debugLog';
 
 import { Range } from './slice';
 
-const rootPath = DEV_MODE ? 'http://localhost:3000/' : '/';
-
-debugLog('Root path for server:', rootPath);
+const rootPath = DEV_MODE ? 'http://localhost:3000/api/' : '/api/';
 
 export const getCredits = createAsyncThunk(
   'credits/getCredits',

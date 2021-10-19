@@ -19,8 +19,8 @@ const Card: FC<CardProps> = ({
   license,
   rate,
   name,
-}) =>
-  window.innerWidth >= 1100 ? (
+}) => {
+  return window.innerWidth >= 1100 ? (
     <div className={styles.card}>
       <div className={styles.card__elem__container}>
         <div className={styles.card__elem__content}>
@@ -71,5 +71,6 @@ const Card: FC<CardProps> = ({
       </div>
     </div>
   );
+};
 
 export default Card;
