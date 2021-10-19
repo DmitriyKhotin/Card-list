@@ -1,6 +1,10 @@
 # Card-list
 Simple SPA with cards list
 
+**Deploy**: [https://credits-cards.herokuapp.com/](https://credits-cards.herokuapp.com/)
+
+**View log through debug query:** [https://credits-cards.herokuapp.com/?debug=y](https://credits-cards.herokuapp.com/?debug=y)
+
 ## Installation
 
 **1. Download the project**
