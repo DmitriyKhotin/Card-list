@@ -54,9 +54,9 @@ app.get('/api', async (requst, response) => {
 })
 
 app.post('/api', async (requst, response) => {
-  const { url, body } = requst;
+  const { body } = requst;
 
-  if (url === '/' && body && body.to <= data.length) {
+  if (body && body.to <= data.length) {
     response.send(sortedAndFiltered.slice(body.from, body.to))
     return
   } else {
